@@ -1,2 +1,16 @@
-# dsm-agrolink-backend
-Backend de AgroLink: API en Kotlin para la gestión de cultivos, registro de actividades, consulta del clima y generación de reportes agrícolas.
+# AgroLink-Backend 
+Este repositorio es el ...
+
+
+
+## Configuración
+Para ejecutar el proyecto es necesario:
+- Descargar el repositorio
+- Opcional: Crea un ambiente virtual
+- Instala las dependencias ejecutando 
+	- ```  pip install -r requirements.txt ```
+
+## Ejecución
+- Este proyecto utiliza FastAPI. Puedes levantar el servidor...
+    - ```uvicorn main:app```
+    - En tu navegador ve a http://127.0.0.1:8000
