@@ -1,16 +1,23 @@
-# AgroLink-Backend 
-Este repositorio es el ...
+# AgroLink-Backend  
+Este repositorio contiene el backend del proyecto **AgroLink**, desarrollado con FastAPI. Proporciona servicios API para la gestión de datos agrícolas, facilitando la conexión entre los diferentes módulos del sistema AgroLink.
 
+---
 
+## 📦 **Instalación y Configuración**  
+### **Requisitos previos:**  
+- Python 3.11 o superior  
+- Git  
 
-## Configuración
-Para ejecutar el proyecto es necesario:
-- Descargar el repositorio
+### **Pasos para configurar el proyecto:**  
+- Clonar el repositorio
 - Opcional: Crea un ambiente virtual
 - Instala las dependencias ejecutando 
 	- ```  pip install -r requirements.txt ```
 
-## Ejecución
-- Este proyecto utiliza FastAPI. Puedes levantar el servidor...
-    - ```uvicorn main:app```
+## 🚀 **Ejecución del Servidor**
+- Para iniciar el servidor de FastAPI, ejecuta el siguiente comando:
+    - ```uvicorn main:app --reload``
     - En tu navegador ve a http://127.0.0.1:8000
+    - Puedes ver la documentación en http://127.0.0.1:8000/docs
+
+    
