@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
-from schemas.cultivos import CultivoCreate, CultivoResponse
+from schemas.cultivos import CultivoCreate, CultivoResponse, CultivoUpdate
 from models.cultivos import Cultivo
 from database import get_db
 
@@ -29,3 +29,21 @@ def delete_cultivo(idCultivo: int, db: Session = Depends(get_db)):
     db.delete(cultivo)
     db.commit()
     return {"message": "Cultivo eliminado correctamente"}
+
+@router.patch("/cultivos/{idCultivo}")
+def update_cultivo(idCultivo: int, cultivo_update: CultivoUpdate, db: Session = Depends(get_db)):
+    cultivo = db.query(Cultivo).filter(Cultivo.idCultivo == idCultivo).first()
+    if not cultivo:
+        raise HTTPException(status_code=404, detail="Cultivo no encontrado")
+
+    # Solo actualizamos los campos que no sean None en el objeto cultivo_update
+    if cultivo_update.estado is not None:
+        cultivo.estado = cultivo_update.estado
+    if cultivo_update.visibilidad is not None:
+        cultivo.visibilidad = cultivo_update.visibilidad
+    if cultivo_update.fechaCosechado is not None:
+        cultivo.fechaCosechado = cultivo_update.fechaCosechado
+    
+    # Guardar los cambios en la base de datos
+    db.commit()
+    return {"message": "Cultivo actualizado correctamente"}

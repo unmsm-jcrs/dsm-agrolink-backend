@@ -14,6 +14,11 @@ class CultivoBase(BaseModel):
 class CultivoCreate(CultivoBase):
     pass
 
+class CultivoUpdate(BaseModel):
+    estado: Optional[int] = None
+    visibilidad: Optional[int] = None
+    fechaCosechado: Optional[datetime] = None
+
 class CultivoResponse(CultivoBase):
     idCultivo: int
 
