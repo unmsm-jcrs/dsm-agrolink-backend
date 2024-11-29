@@ -9,9 +9,13 @@ class UsuarioBase(BaseModel):
 class UsuarioCreate(UsuarioBase):
     contrasenia: str
 
-class UsuarioLogin(BaseModel):
+class UsuarioLoginRequest(BaseModel):
     correo: EmailStr
     contrasenia: str
 
-    class Config:
-        from_attributes  = True
+class UsuarioLoginResponse(BaseModel):
+    idUsuario: int
+
+
+class Config:
+    from_attributes  = True
